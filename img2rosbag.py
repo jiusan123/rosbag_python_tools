@@ -34,7 +34,7 @@ def CreateBag(timestamps, images, output_bag):
         os.system(r'touch %s' % output_bag)
     # bag = rosbag.Bag(output_bag, 'w')
     for i in range(len(timestamps)):
-        # stamp = rospy.rostime.Time.from_sec(float(timestamps[i]/1000000))
+        # stamp = rospy.rostime.Time.from_sec(float(float(timestamps[i])/1000000))
         image = Image.open((images[i]))
         cb = CvBridge()
         data = np.asarray(image)
