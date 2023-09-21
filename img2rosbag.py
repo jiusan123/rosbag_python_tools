@@ -38,7 +38,7 @@ def CreateBag(timestamps, images, output_bag):
         image = Image.open((images[i]))
         cb = CvBridge()
         data = np.asarray(image)
-        image_msg = cb.cv2_to_imgmsg(data)
+        image_msg = cb.cv2_to_imgmsg(data, encoding="rgb8")
         image_msg.header.stamp = stamp
         image_msg.header.frame_id = "camera"
         bag.write('camera/image', image_msg, stamp)
